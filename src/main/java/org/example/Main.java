@@ -16,9 +16,9 @@ public class Main {
 
 
         // Add some patient records
-        int id1 = patientRecord.addPatient("Alice", 90);
+        int id1 = patientRecord.addPatient("Alice", 40);
        queue.enqueue(id1);
-        int id2 = patientRecord.addPatient("Bob", 90);
+        int id2 = patientRecord.addPatient("Bob", 80);
         queue.enqueue(id2);
         int id3 = patientRecord.addPatient("Charlie", 75);
         queue.enqueue(id3);
@@ -38,8 +38,10 @@ public class Main {
                String name = sc.next();
                         System.out.println("Enter Patient Age");
                         int age = sc.nextInt();
-                System.out.println(name) ;  break;
-            case 3 : break;
+                queue.enqueue(patientRecord.addPatient("Alice", 40));
+                System.out.println("Added Successfully" ) ;  break;
+            case 3 : System.out.println("The next patient is " + queue.next());
+            break;
             case 4 : queue.dequeue();
             System.out.println("deleted");
             break;

@@ -24,7 +24,12 @@ public class ConsultQueue {
         shiftUp(size);
         size++;
     }
-
+    public int next(){
+        if(size==0){
+            throw new NoSuchElementException("Consult queue is empty");
+        }
+        return heap[0];
+    }
     public int dequeue() {
         if (size == 0) {
             throw new NoSuchElementException("Consult queue is empty");
