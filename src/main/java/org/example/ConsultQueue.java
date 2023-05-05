@@ -7,18 +7,21 @@ public class ConsultQueue {
     private int size;
     private int capacity;
 
-    public ConsultQueue(int capacity) {
+    private PatientRecord record;
+
+    public ConsultQueue(int capacity, PatientRecord record) {
         heap = new int[capacity];
         size = 0;
         this.capacity = capacity;
-    }
+        this.record = record;
+           }
 
     public  void enqueue(int patientId) {
         if (size == capacity) {
             throw new IllegalStateException("Consult queue is full");
         }
         heap[size] = patientId;
-        siftUp(size);
+        shiftUp(size);
         size++;
     }
 
@@ -29,7 +32,7 @@ public class ConsultQueue {
         int max = heap[0];
         size--;
         heap[0] = heap[size];
-        siftDown(0);
+        shiftDown(0);
         return max;
     }
 
@@ -43,27 +46,27 @@ public class ConsultQueue {
         }
         System.out.println();
     }
-    private void siftUp(int index) {
+    private void shiftUp(int index) {
         int parent = (index - 1) / 2;
-        if (index > 0 && heap[index] > heap[parent]) {
+        if (index > 0 && record.getPatient(heap[index]).age > record.getPatient(heap[parent]).age) {
             swap(index, parent);
-            siftUp(parent);
+            shiftUp(parent);
         }
     }
 
-    private void siftDown(int index) {
+    private void shiftDown(int index) {
         int left = 2 * index + 1;
         int right = 2 * index + 2;
         int max = index;
-        if (left < size && heap[left] > heap[max]) {
+        if (left < size && record.getPatient(heap[left]).age > record.getPatient(heap[max]).age) {
             max = left;
         }
-        if (right < size && heap[right] > heap[max]) {
+        if (right < size && record.getPatient(heap[right]).age > record.getPatient(heap[max]).age) {
             max = right;
         }
         if (max != index) {
             swap(index, max);
-            siftDown(max);
+            shiftDown(max);
         }
     }
 

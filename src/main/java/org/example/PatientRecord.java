@@ -1,10 +1,12 @@
 package org.example;
 
 public class PatientRecord {
-    private class Patient {
+    public class Patient {
+
         String name;
         int age;
         int id;
+
         Patient prev;
         Patient next;
 
