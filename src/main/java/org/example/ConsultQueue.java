@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 //test
 public class ConsultQueue {
@@ -24,11 +25,11 @@ public class ConsultQueue {
         shiftUp(size);
         size++;
     }
-    public int next(){
+    public String next(){
         if(size==0){
             throw new NoSuchElementException("Consult queue is empty");
         }
-        return heap[0];
+        return record.getPatient(heap[0]).name;
     }
     public int dequeue() {
         if (size == 0) {
@@ -37,19 +38,39 @@ public class ConsultQueue {
         int max = heap[0];
         size--;
         heap[0] = heap[size];
-        shiftDown(0);
+        shiftDown(0,heap);
         return max;
     }
 
     public int size() {
         return size;
     }
-    public void display() {
-        System.out.print("Consult queue: ");
-        for (int i = 0; i < size; i++) {
-            System.out.print(heap[i] + " ");
+    public void display( int size) {
+        int tmpSize=size;
+        if (tmpSize == 0) {
+            throw new NoSuchElementException("Consult queue is empty");
         }
-        System.out.println();
+        int[] tempHeap = Arrays.copyOf(heap, tmpSize);
+
+        System.out.println("------------");
+        while (tmpSize>0) {
+
+            int tmpMax = tempHeap[0];
+
+            System.out.print(record.getPatient(tmpMax).id+ "    ");
+            System.out.print(record.getPatient(tmpMax).name+ "    ");
+            System.out.println(record.getPatient(tmpMax).age+ "    ");
+
+            tmpSize--;
+
+            tempHeap[0] = tempHeap[tmpSize];
+
+           // System.out.print(record.getPatient(heap[tmpMax]).name);
+
+
+        }
+        System.out.println("------------");
+//
     }
     private void shiftUp(int index) {
         int parent = (index - 1) / 2;
@@ -59,7 +80,7 @@ public class ConsultQueue {
         }
     }
 
-    private void shiftDown(int index) {
+    private int[] shiftDown(int index, int[] heap) {
         int left = 2 * index + 1;
         int right = 2 * index + 2;
         int max = index;
@@ -71,8 +92,9 @@ public class ConsultQueue {
         }
         if (max != index) {
             swap(index, max);
-            shiftDown(max);
+            shiftDown(max,heap);
         }
+        return heap;
     }
 
     private void swap(int i, int j) {

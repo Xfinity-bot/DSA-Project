@@ -30,15 +30,14 @@ public class Main {
         System.out.println("4.Delete Patient");
         System.out.println("5.Exit");
         x= sc.nextInt();
-        System.out.println(x);
         switch(x){
-            case 1 : queue.display();
+            case 1 : queue.display( queue.size());
             break;
             case 2 : System.out.println("Enter Patient Name");
                String name = sc.next();
                         System.out.println("Enter Patient Age");
                         int age = sc.nextInt();
-                queue.enqueue(patientRecord.addPatient("Alice", 40));
+                queue.enqueue(patientRecord.addPatient(name, age));
                 System.out.println("Added Successfully" ) ;  break;
             case 3 : System.out.println("The next patient is " + queue.next());
             break;
