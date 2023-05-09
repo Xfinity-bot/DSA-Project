@@ -22,7 +22,8 @@ public class ConsultQueue {
             throw new IllegalStateException("Consult queue is full");
         }
         heap[size] = patientId;
-        shiftUp(size);
+        int parent = (size - 1) / 2;
+        heapify(heap,size,parent);
         size++;
     }
     public String next(){
@@ -38,7 +39,7 @@ public class ConsultQueue {
         int max = heap[0];
         size--;
         heap[0] = heap[size];
-        shiftDown(0,heap);
+        heapify(heap,size,0);
         return max;
     }
 
@@ -70,30 +71,7 @@ public class ConsultQueue {
         System.out.println("------------");
 //
     }
-    private void shiftUp(int index) {
-        int parent = (index - 1) / 2;
-        if (index > 0 && record.getPatient(heap[index]).age > record.getPatient(heap[parent]).age) {
-            swap(index, parent);
-            shiftUp(parent);
-        }
-    }
 
-    private int[] shiftDown(int index, int[] heap) {
-        int left = 2 * index + 1;
-        int right = 2 * index + 2;
-        int max = index;
-        if (left < size && record.getPatient(heap[left]).age > record.getPatient(heap[max]).age) {
-            max = left;
-        }
-        if (right < size && record.getPatient(heap[right]).age > record.getPatient(heap[max]).age) {
-            max = right;
-        }
-        if (max != index) {
-            swap(index, max);
-            shiftDown(max,heap);
-        }
-        return heap;
-    }
 
     private void swap(int i, int j) {
         int temp = heap[i];
