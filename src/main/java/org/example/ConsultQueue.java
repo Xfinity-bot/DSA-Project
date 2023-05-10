@@ -52,11 +52,7 @@ public class ConsultQueue {
             throw new NoSuchElementException("Consult queue is empty");
         }
 
-        for(int i=0;i<size;i++){
 
-            System.out.print(heap[i] );
-        }
-        System.out.println();
 
         int[] tempHeap = Arrays.copyOf(heap, size);
         int[] teemp = heapSort(tempHeap,size);

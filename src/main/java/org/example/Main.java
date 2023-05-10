@@ -41,8 +41,8 @@ public class Main {
                 System.out.println("Added Successfully" ) ;  break;
             case 3 : System.out.println("The next patient is " + queue.next());
             break;
-            case 4 : queue.dequeue();
-            System.out.println("deleted");
+            case 4 : //queue.dequeue();
+            System.out.println(patientRecord.getPatient(queue.dequeue()).name + " visit");
             break;
             case 5 : System.exit(0);
             default:System.out.println("Invalid Entry");
