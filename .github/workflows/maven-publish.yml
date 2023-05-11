@@ -20,8 +20,8 @@ jobs:
       packages: write
 
     steps:
-    - name : test
-      run: cat settings.xml
+   # - name : test
+  #    run: cat settings.xml
     - name : test2
       run: dir 
     - uses: actions/checkout@v3
