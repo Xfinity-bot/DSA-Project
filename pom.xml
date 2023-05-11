@@ -4,16 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.example</groupId>
-    <artifactId>DSA-Project</artifactId>
+    <artifactId>dsa-project</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
 
-
+    <!-- Distribution Management -->
     <distributionManagement>
         <repository>
             <id>github</id>
-            <name>GitHub Xfinity-bot Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/Xfinity-bot/DSA-Project</url>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/xfinity-bot/DSA-Project</url>
         </repository>
     </distributionManagement>
 
