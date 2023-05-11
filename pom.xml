@@ -7,11 +7,11 @@
         <repository>
             <id>github</id>
             <name>Xfinity-bot</name>
-            <url>https://maven.pkg.github.com/Xfinity-bot/DSA.Patient-Appointment-Software</url>
+            <url>https://maven.pkg.github.com/Xfinity-bot/DSA-Project</url>
         </repository>
     </distributionManagement>
     <groupId>org.example</groupId>
-    <artifactId>DSA.Patient-Appointment-Software</artifactId>
+    <artifactId>DSA-Project</artifactId>
     <version>1.0.0</version>
 
     <properties>
