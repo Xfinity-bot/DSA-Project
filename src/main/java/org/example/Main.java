@@ -14,7 +14,6 @@ public class Main {
         Scanner sc=new Scanner(System.in);
         int x ;
 
-
         // Add some patient records
         int id1 = patientRecord.addPatient("Alice", 40);
        queue.enqueue(id1);
